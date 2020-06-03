@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="base" template="/WEB-INF/tiles/layout.jsp">
+		<put-attribute name="title" value="Auto CLoud Web" />
+		<put-attribute name="menu"
+			value="/WEB-INF/tiles/menu.jsp" />
+		<put-attribute name="footer"
+			value="/WEB-INF/tiles/footer.jsp" />
+	</definition>
+
+	<!-- name은 controller의 return 값과 같아야돼 -->
+
+	<definition name="index" extends="base">
+		<put-attribute name="title" value="Auto CLoud HomePage" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/index.jsp" />
+	</definition>
+	<!-- index 기반 새로운 웹페이지 생성 -->
+
+	<definition name="metaView" extends="base">
+		<put-attribute name="title" value="Auto CLoud 모든 사진" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/metaView.jsp" />
+	</definition>
+
+	<definition name="autoTagView" extends="base">
+		<put-attribute name="title" value="Auto CLoud 자동 태그" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/autoTagView.jsp" />
+	</definition>
+
+	<definition name="darkedRecommend" extends="base">
+		<put-attribute name="title" value="Auto CLoud 흔들린 사진" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/darkedRecommend.jsp" />
+	</definition>
+
+	<definition name="screenshotRecommend" extends="base">
+		<put-attribute name="title" value="Auto CLoud 스크린샷" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/screenshotRecommend.jsp" />
+	</definition>
+
+	<definition name="shakenRecommend" extends="base">
+		<put-attribute name="title" value="Auto CLoud 흔들린 사진" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/shakenRecommend.jsp" />
+	</definition>
+
+	<definition name="similarRecommend" extends="base">
+		<put-attribute name="title" value="Auto CLoud 유사 사진" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/similarRecommend.jsp" />
+	</definition>
+
+	<definition name="trash" extends="base">
+		<put-attribute name="title" value="Auto CLoud 휴지통" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/trash.jsp" />
+	</definition>
+
+	<definition name="viewImage" extends="base">
+		<put-attribute name="title" value="Picle 상세 정보" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/viewImage.jsp" />
+	</definition>
+</tiles-definitions>
