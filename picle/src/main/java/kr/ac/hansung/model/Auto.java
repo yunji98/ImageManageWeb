@@ -15,6 +15,7 @@ public class Auto {
 	private String id;
 	private String title;
 	private String token;
+	private String tag;
 
 	
 	public boolean isAnimal() {
@@ -119,5 +120,12 @@ public class Auto {
 
 	public void setToken(String token) {
 		this.token = token;
+	}
+	public String getTag() {
+		return tag;
+	}
+
+	public void setTag(String tag) {
+		this.tag = tag;
 	}
 }

@@ -77,6 +77,22 @@ public class PhotoController {
 
 		return "autoTagView";
 	}
+	
+	@RequestMapping("/detailTagView/{autoTag}")
+	public String getAutoTag(@PathVariable String autoTag,Model model) {
+		List<Auto> autoList = new ArrayList<Auto>();
+		
+		try {
+			autoList = autoService.getTagProducts(autoTag);
+			model.addAttribute("autoList", autoList);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			e.printStackTrace();
+		}
+
+		return "detailTagView";
+	}
 
 	@RequestMapping("/darkedRecommend")
 	public String getDarkImage(Model model) {
