@@ -9,6 +9,7 @@ public class Meta {
 	private String place;
 	private String title;
 	private String token;
+	private Long upload;
 
 	public boolean isDeleted() {
 		return deleted;
@@ -73,5 +74,16 @@ public class Meta {
 	public void setToken(String token) {
 		this.token = token;
 	}
+
+	public Long getUpload() {
+		return upload;
+	}
+
+	public void setUpload(Long upload) {
+		this.upload = upload;
+	}
+
+
+
 
 }

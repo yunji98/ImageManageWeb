@@ -63,15 +63,26 @@
 			value="/WEB-INF/views/trash.jsp" />
 	</definition>
 
-	<definition name="viewImage" extends="base">
-		<put-attribute name="title" value="Picle 상세 정보" />
-		<put-attribute name="body"
-			value="/WEB-INF/views/viewImage.jsp" />
-	</definition>
-	
 	<definition name="login" extends="base">
 		<put-attribute name="title" value="Picle 로그인" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/login.jsp" />
 	</definition>
+
+	<definition name="base2"
+		template="/WEB-INF/tiles/layout2.jsp">
+		<put-attribute name="title" value="두번째 layout" />
+		<put-attribute name="menu"
+			value="/WEB-INF/tiles/menu.jsp" />
+		<put-attribute name="footer"
+			value="/WEB-INF/tiles/footer.jsp" />
+	</definition>
+
+	<definition name="viewImage" extends="base2">
+		<put-attribute name="title" value="상세 이미지" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/viewImage.jsp" />
+
+	</definition>
+
 </tiles-definitions>

@@ -16,26 +16,13 @@
 						</tr><tr>
 						</c:if>
 						<td>
-							<a href="<c:url value="/viewImage/${metaList.title } "/>">
+							<a href="<c:url value="/viewImage/${metaList.upload } "/>">
 								<img src="<c:url value="${metaList.token }" />" alt="image" style="width: 200px; height: 200px;" />
 							</a>
 						</td>
 					</c:forEach>
 				</tr>
 			</tbody>
-			
-			<%-- <tbody style="margin-top:20px;">
-				<tr>
-					<td><img src="<c:url value="/resources/img/dark1.jpg"/>" alt="image" style="width:200px; height:200px;"/></td>
-					<td><img src="<c:url value="/resources/img/dog1.jpg"/>" alt="image" style="width:200px; height:200px;"/></td>
-					<td><img src="<c:url value="/resources/img/mouse1.jpg"/>" alt="image" style="width:200px; height:200px;"/></td>
-					<td><img src="<c:url value="/resources/img/notebook1.jpg"/>" alt="image" style="width:200px; height:200px;"/></td>
-				</tr>
-				<tr>
-					<td><img src="<c:url value="/resources/img/person1.jpg"/>" alt="image" style="width:200px; height:200px;"/></td>
-					<td><img src="<c:url value="/resources/img/plant1.jpg"/>" alt="image" style="width:200px; height:200px;"/></td>
-				</tr>
-			</tbody> --%>
 		</table>
 	</div>
 </div>

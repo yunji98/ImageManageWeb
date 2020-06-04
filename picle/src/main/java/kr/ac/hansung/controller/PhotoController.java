@@ -47,14 +47,12 @@ public class PhotoController {
 		return "metaView";
 	}
 	
-	@RequestMapping("/viewImage/{Imagetitle}")
-	public String getMetaView(@PathVariable String Imagetitle, Model model) {
-		Meta metaView = new Meta();
-		
-		String Imagetitle2 = Imagetitle + ".jpg";
+	@RequestMapping("/viewImage/{upload}")
+	public String getMetaView(@PathVariable Long upload, Model model) {
+		Meta metaDetail = new Meta();
 		try {
-			metaView = metaService.getViewImage(Imagetitle2);
-			model.addAttribute("metaView", metaView);
+			metaDetail = metaService.getViewImage(upload);
+			model.addAttribute("metaDetail", metaDetail);
 
 		} catch (InterruptedException e) {
 			e.printStackTrace();

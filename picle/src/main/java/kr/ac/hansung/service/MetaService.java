@@ -22,68 +22,71 @@ public class MetaService {
 	public static final String COL_NAME = "meta";
 
 	//meta service => all photo
-	public List<Meta> getProducts() throws InterruptedException, ExecutionException {
-		try {
-			List<Meta> metaList = new ArrayList<Meta>();
-			
-			Firestore dbFirestore = FirestoreClient.getFirestore();
-			ApiFuture<QuerySnapshot> future = dbFirestore.collection(COL_NAME).whereEqualTo("deleted", false).get();
-			List<QueryDocumentSnapshot> documents = future.get().getDocuments();
-			
-			for(DocumentSnapshot document : documents) {
+		public List<Meta> getProducts() throws InterruptedException, ExecutionException {
+			try {
+				List<Meta> metaList = new ArrayList<Meta>();
+				
+				Firestore dbFirestore = FirestoreClient.getFirestore();
+				ApiFuture<QuerySnapshot> future = dbFirestore.collection(COL_NAME).whereEqualTo("deleted", false).get();
+				List<QueryDocumentSnapshot> documents = future.get().getDocuments();
+				
+				for(DocumentSnapshot document : documents) {
+					Meta meta = new Meta();
+					
+					meta.setDeleted((Boolean) document.get("deleted"));
+					meta.setId(document.get("id").toString());
+					meta.setLatitude((double)document.get("latitude"));
+					meta.setLongitude((double)document.get("longitude"));
+					meta.setPath(document.get("path").toString());
+					meta.setPlace(document.get("place").toString());
+					meta.setTitle(document.get("title").toString());
+					meta.setToken(document.get("token").toString());
+					meta.setUpload((Long)document.get("upload"));
+				
+					metaList.add(meta);
+				}
+				
+				return metaList;
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("에러");
+			}
+
+			return null;
+		}
+	
+	//상세 페이지에 사용될 것.
+		public Meta getViewImage(double upload) throws InterruptedException, ExecutionException {
+			try {
 				Meta meta = new Meta();
 				
-				meta.setDeleted((Boolean) document.get("deleted"));
-				meta.setId(document.get("id").toString());
-				meta.setLatitude((double)document.get("latitude"));
-				meta.setLongitude((double)document.get("longitude"));
-				meta.setPath(document.get("path").toString());
-				meta.setPlace(document.get("place").toString());
-				meta.setTitle(document.get("title").toString());
-				meta.setToken(document.get("token").toString());
-			
-				metaList.add(meta);
-			}
-			
-			return metaList;
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("에러");
-		}
-
-		return null;
-	}
-	
-	public Meta getViewImage(String title) throws InterruptedException, ExecutionException {
-		try {
-			Meta meta = new Meta();
-			
-			Firestore dbFirestore = FirestoreClient.getFirestore();
-			ApiFuture<QuerySnapshot> future = dbFirestore.collection(COL_NAME).whereEqualTo("title", title).get();
-			List<QueryDocumentSnapshot> documents = future.get().getDocuments();
-			
-			for(DocumentSnapshot document : documents) {
-				meta = new Meta();
+				Firestore dbFirestore = FirestoreClient.getFirestore();
+				ApiFuture<QuerySnapshot> future = dbFirestore.collection(COL_NAME).whereEqualTo("upload", upload).get();
+				List<QueryDocumentSnapshot> documents = future.get().getDocuments();
 				
-				meta.setDeleted((Boolean) document.get("deleted"));
-				meta.setId(document.get("id").toString());
-				meta.setLatitude((double)document.get("latitude"));
-				meta.setLongitude((double)document.get("longitude"));
-				meta.setPath(document.get("path").toString());
-				meta.setPlace(document.get("place").toString());
-				meta.setTitle(title);
-				meta.setToken(document.get("token").toString());
+				for(DocumentSnapshot document : documents) {
+					meta = new Meta();
+					
+					meta.setDeleted((Boolean) document.get("deleted"));
+					meta.setId(document.get("id").toString());
+					meta.setLatitude((double)document.get("latitude"));
+					meta.setLongitude((double)document.get("longitude"));
+					meta.setPath(document.get("path").toString());
+					meta.setPlace(document.get("place").toString());
+					meta.setTitle(document.get("title").toString());
+					meta.setToken(document.get("token").toString());
+					meta.setUpload((Long)document.get("upload"));
+				}
+				
+				return meta;
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("에러");
 			}
 			
-			return meta;
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("에러");
+			return null;
+			
 		}
-		
-		return null;
-		
-	}
 	
 	//deleted service => trash
 	public List<Meta> getDeletedProducts() throws InterruptedException, ExecutionException {
@@ -106,6 +109,7 @@ public class MetaService {
 				meta.setPlace(document.get("place").toString());
 				meta.setTitle(document.get("title").toString());
 				meta.setToken(document.get("token").toString());
+				meta.setUpload((Long)document.get("upload"));
 			
 				trashList.add(meta);
 			}

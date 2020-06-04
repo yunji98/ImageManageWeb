@@ -3,30 +3,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<div class="container-wrapper">
+<div class="container-wrapper"
+	style="margin-top: 140px; ">
 	<div class="container">
-		<h1>Image Detail</h1>
-		<p class="lead">Here is the detail information!</p>
-
-		<div class="row">
-			<div class="col-md-6">
-				<img
-					src="<c:url value="${metaView.token}" />"
-					alt="image" style="width: 80%" />
+		<center>
+			<h2>Image Detail</h2>
+			<p class="lead">Here is the detail information!</p>
+			<div class="row">
+				<div class="col-md-6">
+					<img src="<c:url value="${metaDetail.token}" />" alt="image"
+						style="width: 380px; height: 380px;" />
+					<div class="col-md-6">
+						<h3>title : ${metaDetail.title}</h3>
+						<p>place : ${metaDetail.place}</p>
+						<p>
+							<strong>latitude</strong> : ${metaDetail.latitude }
+						</p>
+						<p>
+							<strong>longitude</strong> : ${metaDetail.longitude }
+						</p>
+						<h3>path : ${metaDetail.path}</h3>
+					</div>
+				</div>
 			</div>
+		</center>
 
-			<div class="col-md-6">
-				<h3>title : ${metaView.title}</h3>
-				<p>place : ${metaView.place}</p>
-				<p>
-					<strong>latitude</strong> : ${metaView.latitude }
-				</p>
-				<p>
-					<strong>longitude</strong> : ${metaView.longitude }
-				</p>
-				<h3>path : ${metaView.path}</h3>
-			</div>
-		</div>
 	</div>
 </div>
-
