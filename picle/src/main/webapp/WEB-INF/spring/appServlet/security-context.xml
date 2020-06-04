@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<b:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:b="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+						
+		
+	<authentication-manager>
+		<authentication-provider>
+			<user-service>
+				<user name="hankki1998@gmail.com"
+					authorities="ROLE_USER" password="{noop}123456" />
+			</user-service>
+		</authentication-provider>
+	</authentication-manager>
+	
+	<http auto-config="true" use-expressions="true">
+	<csrf disabled="true"/>
+		<intercept-url access="permitAll" pattern="/" />
+		<intercept-url access="permitAll" pattern="/index" />
+		<intercept-url access="permitAll" pattern="/login" />
+		<intercept-url access="permitAll" pattern="/logout" />
+		<intercept-url access="permitAll" pattern="/resources/**" />
+		<!-- <intercept-url access="denyAll" pattern="/**" /> -->
+ 		<intercept-url access="permitAll" pattern="/viewImage" />
+		<intercept-url access="permitAll" pattern="/auToTagView" />
+		<intercept-url access="permitAll" pattern="/darkedRecommend" />
+		<intercept-url access="permitAll" pattern="/metaView" />
+		<intercept-url access="permitAll" pattern="/screenshotRecommend" />
+		<intercept-url access="permitAll" pattern="/shakenRecommend" />
+		<intercept-url access="permitAll" pattern="/similarRecommend" />
+		<intercept-url access="permitAll" pattern="/trash" />
+		<form-login login-page="/login"
+			authentication-failure-url="/login?error" />
+		<logout />
+	</http>
+</b:beans>
