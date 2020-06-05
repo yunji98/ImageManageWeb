@@ -37,7 +37,7 @@
 			<div class="section-header">
 				<h3 class="section-title">Our Team</h3>
 				<span class="section-divider"></span>
-				<p class="section-description">우리팀은 센세이션.</p>
+				<p class="section-description">우리팀</p>
 			</div>
 			<div class="row wow fadeInUp">
 				<div class="col-lg-3 col-md-6">

@@ -16,7 +16,7 @@
 	<div class="container">
 		<div id="logo" class="pull-left">
 			<h1>
-				<a href="<c:url value="/index"/>" class="scrollto">Picle</a>
+				<a href="<c:url value="/index"/>" class="scrollto" style="text-decoration:none;">Picle</a>
 			</h1>
 			<!-- Uncomment below if you prefer to use an image logo -->
 			<!-- <a href="#intro"><img src="img/logo.png" alt="" title=""></a> -->
